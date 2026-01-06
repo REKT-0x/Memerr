@@ -23,19 +23,19 @@
         
         #empty-state { position: absolute; text-align: center; color: var(--cyan); font-size: 14px; letter-spacing: 2px; z-index: 5; font-weight: bold; }
 
-        #controls { background: #0a0a0a; border-top: 2px solid var(--neon); padding: 12px; flex-shrink: 0; min-height: 280px; }
+        #controls { background: #0a0a0a; border-top: 2px solid var(--neon); padding: 12px; flex-shrink: 0; min-height: 290px; }
 
         @media (min-width: 768px) {
             body { flex-direction: row; }
             header { display: none; }
             #controls { width: 360px; height: 100vh; border-top: none; border-right: 2px solid var(--neon); min-height: auto; overflow-y: auto; }
-            .scroll-templates { flex-wrap: wrap !important; overflow-x: hidden !important; overflow-y: auto; height: 300px; }
+            .scroll-templates { flex-wrap: wrap !important; overflow-x: hidden !important; overflow-y: auto; height: 350px; }
             .thumb { height: 80px !important; }
         }
 
-        .input-row { display: flex; gap: 5px; margin-bottom: 8px; }
+        .input-row { display: flex; gap: 5px; margin-bottom: 10px; }
         input[type="text"] { flex: 1; padding: 10px; border-radius: 4px; border: 1px solid var(--cyan); background: #000; color: white; font-size: 16px; }
-        .btn-add { background: var(--neon); color: #000; font-weight: bold; border: none; padding: 0 15px; border-radius: 4px; font-size: 12px; cursor: pointer; }
+        .btn-add { background: var(--neon); color: #000; font-weight: bold; border: none; padding: 0 20px; border-radius: 4px; font-size: 14px; cursor: pointer; }
 
         .palette { display: flex; justify-content: space-between; margin-bottom: 10px; padding: 0 5px; }
         .swatch { width: 28px; height: 28px; border-radius: 50%; border: 2px solid #fff; cursor: pointer; }
@@ -51,7 +51,6 @@
         .btn-gal { background: #444; color: #fff; }
         .btn-clear { background: var(--warning); color: #fff; }
 
-        /* SCROLLABLE TEMPLATE AREA */
         .template-section-label { font-size: 10px; color: var(--neon); margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px; }
         .scroll-templates { 
             display: flex; 
@@ -59,12 +58,11 @@
             gap: 12px; 
             padding: 10px 5px; 
             border-top: 1px solid #333; 
-            -webkit-overflow-scrolling: touch; /* Smooth scroll on iOS */
+            -webkit-overflow-scrolling: touch;
         }
-        .thumb-wrap { position: relative; flex-shrink: 0; transition: transform 0.2s; }
-        .thumb-wrap:active { transform: scale(0.95); }
-        .thumb { height: 90px; width: auto; border-radius: 6px; cursor: pointer; border: 2px solid #222; }
-        .thumb-label { position: absolute; bottom: 4px; left: 0; width: 100%; font-size: 8px; background: rgba(0,255,136,0.9); color: #000; text-align: center; font-weight: bold; }
+        .thumb-wrap { position: relative; flex-shrink: 0; }
+        .thumb { height: 95px; width: auto; border-radius: 6px; cursor: pointer; border: 2px solid #222; }
+        .thumb-label { position: absolute; bottom: 4px; left: 0; width: 100%; font-size: 8px; background: rgba(0,255,136,0.9); color: #000; text-align: center; font-weight: bold; padding: 2px 0; }
     </style>
 </head>
 <body>
@@ -87,7 +85,7 @@
         </div>
 
         <div class="input-row">
-            <input type="text" id="textInput" placeholder="TEXT...">
+            <input type="text" id="textInput" placeholder="ENTER TEXT...">
             <button class="btn-add" onclick="addCustomText()">ADD</button>
         </div>
 
@@ -110,11 +108,15 @@
 
         <input type="file" id="fileInput" hidden accept="image/*" onchange="handleFileUpload(event)">
         
-        <div class="template-section-label">Select Canvas:</div>
+        <div class="template-section-label">Main $LE Assets:</div>
         <div class="scroll-templates" id="template-list">
             <div class="thumb-wrap" onclick="loadMeme('IMG_3663.jpeg')">
                 <img src="IMG_3663.jpeg" class="thumb" style="border-color: var(--neon);">
-                <div class="thumb-label">MAIN $LE</div>
+                <div class="thumb-label">LE 1</div>
+            </div>
+            <div class="thumb-wrap" onclick="loadMeme('IMG_3664.jpeg')">
+                <img src="IMG_3664.jpeg" class="thumb" style="border-color: var(--neon);">
+                <div class="thumb-label">LE 2</div>
             </div>
         </div>
     </div>
